@@ -30,4 +30,15 @@ const audioStorage = new CloudinaryStorage({
 
 const uploadAudio = multer({storage: audioStorage});
 
+const avatarStorage = new CloudinaryStorage({
+    cloudinary,
+    params: {
+        folder: 'podcasts-app/avatars',
+        allowed_formats: ['jpg', 'jpeg', 'png'],
+        transformation: [{ width: 300, height: 300, crop: 'thumb', gravity: 'face' }]
+    }
+});
+
+const uploadAvatar = multer({storage: avatarStorage});
+
 module.exports = {cloudinary, uploadImage, uploadAudio};
