@@ -1,3 +1,7 @@
-const router = require('express').Router();
+const router = require('express').Router()
+const boardController = require('../controllers/Boards')
 
-module.exports = router;
+router.get('/', boardController.getAllBoards)
+router.post('/new', boardController.creatNewBoard)
+
+module.exports = router
