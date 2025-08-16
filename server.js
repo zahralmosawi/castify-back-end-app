@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(logger('dev'));
 
 app.use('/users', userRoutes);
-app.use('/podcasts', podcastRoutes);
+app.use('/', podcastRoutes);
 app.use('/boards', boardRoutes);
 app.use('/auth', authRoutes);
 
