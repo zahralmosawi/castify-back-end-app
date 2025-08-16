@@ -31,5 +31,5 @@ const PodcastSchema = new Schema({
     }
 })
 
-const Podcast = mongoose.model('Podcast', PodcastSchema)
+const Podcast = model('Podcast', PodcastSchema)
 module.exports = Podcast
