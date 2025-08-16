@@ -10,13 +10,20 @@ const PodcastSchema = new Schema({
         required: true
     },
     audio_url:{
-        url: String,
-        public_id: String,
-        duration: Number,
-        required: true
+        url: {
+            type: String,
+            required: true
+        }, 
+        duration: {
+            type: Number,
+            min: 0
+        }
     },
     podcastImage:{
-        url: String
+        url: {
+            type: String,
+            required: true
+        }
     },
     creator:{
         type: String,

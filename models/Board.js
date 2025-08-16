@@ -14,7 +14,17 @@ const BoardSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User',
         required: true
-    }
+    },
+    description: {
+        type: String
+    },
+    isPublic: {
+        type: Boolean,
+    },
+    tags: [{
+        type: String,
+        lowercase: true
+    }]
 })
 
 const Board = mongoose.model('Board', BoardSchema)
