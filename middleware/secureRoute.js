@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const SECRET = 'n7!Yp2$Wq@LzR8^m3#KvX9*Fb6%HtG4&';
 
 module.exports = function secureRoute(req, res, next) {
-    const authHeader = req.header['authorization'];
+    const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
 
     if (!token) {
