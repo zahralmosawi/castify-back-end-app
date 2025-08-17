@@ -20,4 +20,18 @@ async function creatNewBoard(req, res){
     }
 }
 
-module.exports = {getAllBoards, creatNewBoard}
+async function getSingleBoard(req, res){
+    try{
+        console.log('getting board ...')
+        const board = await Board.findById(req.params.id)
+        if(!board){
+            return res.status(404).json('Board Not Found')
+        }else{
+            res.status(200).json(board)
+        }
+    }catch(error){
+        res.status(500).json({error: error.message})
+    }
+}
+
+module.exports = {getAllBoards, creatNewBoard, getSingleBoard}
