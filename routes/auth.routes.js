@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const bcrypt = require('bcrypt');
-
-const User = require('../models/User');
-
+const authController = require('../controllers/Auth');
 const multer = require('multer');
 const { avatarStorage } = require('../config/cloudinary');
 const upload = multer({ storage: avatarStorage });
+
+router.post('/signup', upload.single('avatar'), authController.register);
+router.post('/login', authController.login);
 
 module.exports = router;
