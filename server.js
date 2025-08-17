@@ -13,12 +13,11 @@ dotenv.config();
 
 const app = express();
 
+const connectToDB = require('./config/db');
+
 const PORT = process.env.PORT || 3000;
 
-mongoose.connect(process.env.MONGODB_URI);
-mongoose.connection.on('connected', () => {
-    console.log('connected to mongoDB');
-});
+connectToDB();
 
 app.use(cors());
 app.use(express.json());
