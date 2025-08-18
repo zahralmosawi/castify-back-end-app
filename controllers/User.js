@@ -15,6 +15,37 @@ async function getProfile(req, res) {
     }
 }
 
+async function updateProfile(req, res) {
+    try {
+        const updates = req.body;
+        
+        const user = await User.findByIdAndUpdate(
+            req.user.id,
+            updates,
+            {new: true}
+        )
+
+        if (!user) {
+            return res.status(404).json({error: "User not found"});
+        }
+
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(500).json({error: error.message});
+    }
+}
+
+async function deleteAccount(req, res) {
+    try {
+        await User.findByIdAndDelete(req.user.id);
+        res.status(200).json({message: "Account deleted successfully"});
+    } catch (error) {
+        res.status(500).json({error: error.message});
+    }
+}
+
 module.exports = {
-    getProfile
+    getProfile,
+    updateProfile,
+    deleteAccount
 }
