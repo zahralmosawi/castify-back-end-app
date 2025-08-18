@@ -25,7 +25,7 @@ async function getSingleBoard(req, res){
         console.log('getting board ...')
         const board = await Board.findById(req.params.id)
         if(!board){
-            return res.status(404).json('Board Not Found')
+            return res.status(404).json({error: 'Board Not Found'})
         }else{
             res.status(200).json(board)
         }
@@ -37,9 +37,9 @@ async function getSingleBoard(req, res){
 async function editBoard(req, res){
     try{
         console.log('editing the board')
-        const editedBoard = await Board.findByIdAndUpdate(req.params.boardId, req.body)
+        const editedBoard = await Board.findByIdAndUpdate(req.params.boardId, req.body, {new: true})
         if(!editedBoard){
-            return res.status(404).json('Board Not Found')
+            return res.status(404).json({error: 'Board Not Found'})
         }else{
             res.status(201).json(editedBoard)
         }
@@ -53,7 +53,7 @@ async function deleteBoard(req, res){
         console.log('deleting board...')
         const deletedBoard =  await Board.findByIdAndDelete(req.params.boardId)
         if(!deletedBoard){
-            return res.status(404).json('Board Not Found')
+            return res.status(404).json({error: 'Board Not Found'})
         }else{
             res.status(200).json(deletedBoard)
         }
