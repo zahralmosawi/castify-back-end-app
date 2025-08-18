@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken');
-const SECRET = 'n7!Yp2$Wq@LzR8^m3#KvX9*Fb6%HtG4&';
+const SECRET = process.env.JWT_SECRET;
 
 module.exports = function secureRoute(req, res, next) {
-    const authHeader = req.header['authorization'];
+    const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
 
     if (!token) {
@@ -14,7 +14,7 @@ module.exports = function secureRoute(req, res, next) {
             return res.status(403).json({ message: 'Invalid token' });
         }
 
-        res.user = decoded;
+        req.user = decoded;
         next();
     });
 }
