@@ -42,4 +42,4 @@ const avatarStorage = new CloudinaryStorage({
 
 const uploadAvatar = multer({storage: avatarStorage});
 
-module.exports = {cloudinary, uploadImage, uploadAudio};
+module.exports = {cloudinary, uploadImage, uploadAudio, uploadAvatar};

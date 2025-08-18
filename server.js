@@ -23,6 +23,7 @@ mongoose.connection.on('connected', () => {
 app.use(cors({origin: 'http://localhost:5173'}))
 app.use(express.json());
 app.use(logger('dev'));
+app.use('/uploads', express.static('uploads'));
 
 app.use('/users', userRoutes);
 app.use('/', podcastRoutes);

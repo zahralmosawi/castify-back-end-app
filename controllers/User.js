@@ -17,7 +17,15 @@ async function getProfile(req, res) {
 
 async function updateProfile(req, res) {
     try {
-        const updates = req.body;
+        const updates = {
+            name: req.body.name,
+            email: req.body.email,
+            bio: req.body.bio
+        }
+
+        if (req.file) {
+            updates.avatar = `/uploads/${req.file.filename}`;
+        }
         
         const user = await User.findByIdAndUpdate(
             req.user.id,

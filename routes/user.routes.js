@@ -1,11 +1,13 @@
 const express = require('express');
 const router = require('express').Router();
+const multer = require('multer');
+const uploadAvatar = multer({ dest: 'uploads/' });
 
 const secureRoute = require('../middleware/secureRoute');
 const { getProfile, updateProfile, deleteAccount } = require('../controllers/User');
 
 router.get('/profile', secureRoute, getProfile);
-router.put('/profile/:id', secureRoute, updateProfile);
+router.put('/profile', secureRoute, uploadAvatar.single('avatar'), updateProfile);
 router.delete('/profile/:id', secureRoute, deleteAccount);
 
 module.exports = router;
