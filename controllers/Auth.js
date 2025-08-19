@@ -26,7 +26,7 @@ exports.register = async (req, res) => {
 };
 
 exports.login = async (req, res) => {
-    console.log(process.env.JWT_SECRET)
+    // console.log(process.env.JWT_SECRET)
     try {
         const {username, password} = req.body;
         const user = await User.findOne({username});
@@ -50,6 +50,7 @@ exports.login = async (req, res) => {
         };
 
         const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h'});
+        console.log(token)
 
         res.json({token});
     } catch (error) {
@@ -73,6 +74,7 @@ exports.changePassword = async (req, res) => {
         }
 
         const newPasswordHash = await bcrypt.hash(newPassword, 8)
+        user.passwordHash = newPasswordHash 
         await user.save()
 
     }catch(error){
