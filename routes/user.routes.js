@@ -7,7 +7,7 @@ const secureRoute = require('../middleware/secureRoute');
 const { getProfile, updateProfile, deleteAccount } = require('../controllers/User');
 
 router.get('/profile', secureRoute, getProfile);
-router.put('/profile', secureRoute, uploadAvatar.single('avatar'), updateProfile);
+router.put('/profile', secureRoute, updateProfile);
 router.delete('/profile/:id', secureRoute, deleteAccount);
 
 module.exports = router;
