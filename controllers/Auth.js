@@ -56,3 +56,26 @@ exports.login = async (req, res) => {
         res.status(500).json({message: 'Server error'});
     }
 }
+
+exports.changePassword = async (req, res) => {
+    try{
+        const { currentPassword, newPassword } = req.body
+        const userId = req.user.id
+
+        const  user = await User.findById(userId)
+        if (!user){
+            return res.status(404).json({message: 'User not found'})
+        }
+
+        const isValidPass = await user.validatePassword(currentPassword)
+        if(!isValidPass){
+            return res.status(401).json({message: 'Current password is incorrect'})
+        }
+
+        const newPasswordHash = await bcrypt.hash(newPassword, 8)
+        await user.save()
+
+    }catch(error){
+        res.status(500).json({message: 'Server error', error: error.message})
+    }
+}
