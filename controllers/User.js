@@ -22,10 +22,6 @@ async function updateProfile(req, res) {
             email: req.body.email,
             bio: req.body.bio
         }
-
-        if (req.file) {
-            updates.avatar = `/uploads/${req.file.filename}`;
-        }
         
         const user = await User.findByIdAndUpdate(
             req.user.id,

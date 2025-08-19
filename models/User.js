@@ -24,9 +24,6 @@ const userSchema = new mongoose.Schema({
     bio: {
         type: String
     },
-    avatar: {
-        type: String
-    },
     boards: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Board'
