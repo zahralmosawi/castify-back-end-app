@@ -2,9 +2,14 @@ const Board = require('../models/Board')
 
 async function creatNewBoard(req, res){
     try{
-        console.log('creating new board...')
-        const createdBoard = await Board.create(req.body)
-        res.status(201).json(createdBoard)
+        const {name, description, isPublic, tags} = req.body;
+        const userId = req.user.id;
+
+        const newBoard = await Board.create({
+            name, description, isPublic, tags, createdBy: userId
+        });
+
+        res.status(201).json(newBoard);
     }catch(error){
         res.status(500).json({error: error.message})
     }
