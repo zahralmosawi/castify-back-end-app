@@ -2,11 +2,11 @@ const Board = require('../models/Board')
 
 async function creatNewBoard(req, res){
     try{
-        const {name, description, isPublic, tags} = req.body;
+        const {name, description, isPublic, tags, podcasts } = req.body;
         const userId = req.user.id;
 
         const newBoard = await Board.create({
-            name, description, isPublic, tags, createdBy: userId
+            name, description, isPublic, tags, podcasts, createdBy: userId
         });
 
         res.status(201).json(newBoard);
