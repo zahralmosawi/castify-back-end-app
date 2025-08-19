@@ -77,6 +77,8 @@ exports.changePassword = async (req, res) => {
         user.passwordHash = newPasswordHash 
         await user.save()
 
+        res.status(201).json({message: 'Password changed successfully'})
+
     }catch(error){
         res.status(500).json({message: 'Server error', error: error.message})
     }
