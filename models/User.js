@@ -27,7 +27,10 @@ const userSchema = new mongoose.Schema({
     boards: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Board'
-}]
+    }],
+    avatar: {
+        type: String
+    }
 });
 
 userSchema.methods.validatePassword = function(password) {

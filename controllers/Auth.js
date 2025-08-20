@@ -6,7 +6,7 @@ const SECRET = process.env.JWT_SECRET;
 
 exports.register = async (req, res) => {
     try {
-        const { username, email, password, name, bio } = req.body;
+        const { username, email, password, name, bio, avatar } = req.body;
 
         const existing = await User.findOne({ username });
 
@@ -16,7 +16,7 @@ exports.register = async (req, res) => {
 
         const passwordHash = await bcrypt.hash(password, 8);
 
-        const newUser = new User({username, email, passwordHash, name, bio});
+        const newUser = new User({username, email, passwordHash, name, bio, avatar});
         await newUser.save();
 
         res.status(201).json({message: 'User registered successfully'});
