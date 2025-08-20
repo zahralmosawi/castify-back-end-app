@@ -11,16 +11,14 @@ This is the backend API for Castify, a podcast listening platform. Built with **
 - Media retrieval via Multer + Cloudinary
 
 ## Tech Stack
-| Tech | Description |
-|------|-------------|
-| ![Node.js](https://img.shields.io/badge/-Node.js-339933?logo=node.js&logoColor=white) | Server runtime |
-| ![Express](https://img.shields.io/badge/-Express-000000?logo=express&logoColor=white) | Web framework |
-| ![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?logo=mongodb&logoColor=white) | Database |
-| ![Mongoose](https://img.shields.io/badge/-Mongoose-880000?logo=mongoose&logoColor=white) | ODM for MongoDB |
-| ![Multer](https://img.shields.io/badge/-Multer-563D7C?logo=multer&logoColor=white) | File uploads |
-| ![Cloudinary](https://img.shields.io/badge/-Cloudinary-3448C5?logo=cloudinary&logoColor=white) | Media hosting |
-| ![JWT](https://img.shields.io/badge/-JWT-000000?logo=jsonwebtokens&logoColor=white) | Auth token |
-| ![CORS](https://img.shields.io/badge/-CORS-0069D9?logo=cors&logoColor=white) | Cross-origin resource sharing |
+![Node.js](https://img.shields.io/badge/-Node.js-339933?logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/-Express-000000?logo=express&logoColor=white) 
+![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?logo=mongodb&logoColor=white) 
+![Mongoose](https://img.shields.io/badge/-Mongoose-880000?logo=mongoose&logoColor=white) 
+![Multer](https://img.shields.io/badge/-Multer-563D7C?logo=multer&logoColor=white)
+![Cloudinary](https://img.shields.io/badge/-Cloudinary-3448C5?logo=cloudinary&logoColor=white) 
+![JWT](https://img.shields.io/badge/-JWT-000000?logo=jsonwebtokens&logoColor=white)
+![CORS](https://img.shields.io/badge/-CORS-0069D9?logo=cors&logoColor=white) 
 
 ## Setup
 ### 1. Install dependencies
