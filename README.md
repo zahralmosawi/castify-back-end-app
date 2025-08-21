@@ -3,9 +3,6 @@ This is the backend API for Castify, a podcast listening platform. Built with **
 
 [Frontend Repository](https://github.com/zahralmosawi/castify-front-end-app)
 
-## ERD
-![ERD](https://res.cloudinary.com/dvhwvkip4/image/upload/v1755758296/Screenshot_2025-08-15_090406_zmfsx2.png)
-
 ## Features
 - JWT Authentication (Signup, Login, Change Password)
 - User Profile (Read, Update, Delete)
@@ -40,6 +37,9 @@ CLOUDINARY_API_SECRET=your_api_secret
 
 ### 3. Run the Server
 npm run dev
+
+## ERD
+![ERD](https://res.cloudinary.com/dvhwvkip4/image/upload/v1755758296/Screenshot_2025-08-15_090406_zmfsx2.png)
 
 ## API Routes
 ### Auth Routes
